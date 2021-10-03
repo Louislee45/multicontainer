@@ -9,16 +9,16 @@ script:
   - docker run -e CI=true react-test npm run test
 
 after_success:
-  - docker build -t multi-client ./client
-  - docker build -t multi-nginx ./nginx
-  - docker build -t multi-worker ./worker
-  - docker build -t multi-server ./worker
+  - docker build -t louislee45/multi-client ./client
+  - docker build -t louislee45/multi-nginx ./nginx
+  - docker build -t louislee45/multi-worker ./worker
+  - docker build -t louislee45/multi-server ./worker
 # push all the image to docker hub
   - echo "$docker_psd" | docker login -u "$docker_ID" --password-stdin
-  - docker push multi-client
-  - docker push multi-nginx
-  - docker push multi-worker
-  - docker push multi-server
+  - docker push louislee45/multi-client
+  - docker push louislee45/multi-nginx
+  - docker push louislee45/multi-worker
+  - docker push louislee45/multi-server
 
 
 
